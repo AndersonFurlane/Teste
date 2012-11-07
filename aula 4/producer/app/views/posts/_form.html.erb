@@ -1,0 +1,24 @@
+<!-- todo arquivo que possui um _ na frente ele pode ser reutilizado
+EX:<#%= render 'form' %>  usado no new.html.erb-->
+<%= form_for(@post) do |f| %>
+
+  <%= error_messages_for @post %>
+
+  <div class="field"> <!-- labels do formulario -->
+    <%= f.label :title %><br />
+    <%= f.text_field :title, placeholder: "Título" %> <!-- :placeholder para
+    aparecer na caixa de texto -->
+  </div>
+  <div class="field">
+    <%= f.label :excerpt %><br />
+    <%= f.text_area :excerpt, placeholder: "Descrição" %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, placeholder: "Texto" %>
+  </div>
+  <div class="actions"> <!-- cria o botao -->
+    <%= f.submit %> <!-- posso dar qualquer nome para o botao, ele por default
+    recebe de acordo com a ação-->
+  </div>
+<% end %>
