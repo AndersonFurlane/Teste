@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   #nao precisando declarar esses atributos la.
   respond_to :json, :html, :xml
 
+  before_filter do
+    I18n.locale = "pt-BR"
+  end
+
 end

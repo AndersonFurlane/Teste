@@ -4,4 +4,10 @@ class PagesController < ApplicationController
     @user = User.first
   end
 
+  def princes
+  end
+
+  def tour
+  end
+
 end

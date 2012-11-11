@@ -1,21 +1,25 @@
 class PostsController < ApplicationController
 
-  before_filter :load_resources, :only => %w(new create edit update)
+  before_filter :load_categories
 
   def index
-    @posts = Post.where(:draft => false)
+    @posts = Post.scoped
+    @posts = @posts.search(params[:search]) if params[:search].present?
+    @posts = @category.posts if @category.present?
+    @posts = @posts.published
+
     respond_with @posts
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.published.find(params[:id])
     respond_with @post
   end
 
   protected
-
-    def categories
+    def load_categories
       @categories = Category.all
+      @category   = Category.find(params[:category_id]) if params[:category_id]
     end
 
 end

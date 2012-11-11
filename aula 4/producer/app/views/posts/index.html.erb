@@ -5,7 +5,7 @@
       <h2><%= link_to post.title.titleize, post %></h2>
 
       <div id="post">
-        <%= simple_format post.excerpt %>
+        <%= post.excerpt %>
 
         <p><%= link_to "continue ...", post %></p>
       </div>
@@ -15,3 +15,5 @@
     <p>We'll start posting soon.</p>
   <% end %>
 </div>
+
+<%= render "sidebar" %>
