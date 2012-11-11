@@ -43,7 +43,8 @@
         <% end %>
       </ul>
       <div class="bar">
-        <%= link_to_new Category, new_admin_category_path, :class => "button right" %>
+        <%= link_to_new Category, new_admin_category_path,
+         :class => "button right" %>
       </div>
       <br/>
     <% end %>
@@ -65,6 +66,17 @@
         <%= f.text_field :slug, :size => 27 %>
       </div>
     <% end %>
-  </div>
 
+    <hr/>
+
+    <%= section t(".media") do %>
+      <div class="media">
+        <%- @assets.each do |a| -%>
+          <%= link_to image_tag(a.document.url(:thumb)) , a.document.url,
+           :target => "_blank"  %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
 <% end %>
